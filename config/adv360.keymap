@@ -67,18 +67,18 @@
             keep-mods = <(MOD_LCTL)>;
         };
 
-        endctrlz: endctrlz {
+        endctrlshiftz: endctrlshiftz {
             compatible = "zmk,behavior-tap-dance";
-            label = "ENDCTRLZ";
+            label = "ENDCTRLSHIFTZ";
             #binding-cells = <0>;
-            bindings = <&kp END>, <&kp LC(Z)>;
+            bindings = <&kp END>, <&kp LC(LS(Z))>;
         };
 
-        homectrlshiftz: homectrlshiftz {
+        homectrlz: homectrlz {
             compatible = "zmk,behavior-tap-dance";
-            label = "HOMECTRLSHIFTZ";
+            label = "HOMECTRLZ";
             #binding-cells = <0>;
-            bindings = <&kp HOME>, <&kp LC(LS(Z))>;
+            bindings = <&kp HOME>, <&kp LC(Z)>;
         };
 
         leftctrlz: leftctrlz {
@@ -94,6 +94,40 @@
             #binding-cells = <0>;
             bindings = <&kp RIGHT_ARROW>, <&kp LC(LS(Z))>;
         };
+
+        semicolonunderscore: semicolonunderscore {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SEMICOLONUNDERSCORE";
+            #binding-cells = <0>;
+            bindings = <&kp SEMICOLON>, <&kp LS(MINUS)>;
+        };
+
+        semitap: semitap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SEMITAP";
+            bindings = <&kp>, <&semicolonunderscore>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            flavor = "balanced";
+        };
+
+        aequal: aequal {
+            compatible = "zmk,behavior-tap-dance";
+            label = "AEQUAL";
+            #binding-cells = <0>;
+            bindings = <&kp A>, <&kp LS(EQUAL)>;
+        };
+
+        atap: atap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ATAP";
+            bindings = <&kp>, <&aequal>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            flavor = "balanced";
+        };
     };
 
     keymap {
@@ -102,11 +136,11 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp EQUAL            &kp N1     &kp N2        &kp N3      &kp N4            &kp N5  &mo 1                                                                              &mo 3              &kp N6  &kp N7          &kp N8        &kp N9    &kp N0    &kp MINUS
-&kp TAB              &kp Q      &kp W         &kp E       &kp R             &kp T   &mt LC(LS(V)) LC(V)                                                                &kp LEFT_BRACKET   &kp Y   &kp U           &kp I         &kp O     &kp P     &kp BSLH
-&mt LEFT_WIN ESCAPE  &kp A      &kp S         &kp D       &kp F             &kp G   &mt LC(LS(C)) LC(C)  &kp LCTRL  &kp LALT               &kp LEFT_ALT  &kp LEFT_GUI  &kp RIGHT_BRACKET  &kp H   &kp J           &kp K         &kp L     &kp SEMI  &kp SQT
-&kp LSHFT            &kp Z      &kp X         &kp C       &kp V             &kp B                                   &mt LC(Z) HOME         &kp PG_UP                                      &kp N   &kp M           &kp COMMA     &kp DOT   &kp FSLH  &kp RSHFT
-&kp LCTRL            &kp GRAVE  &kp LEFT_WIN  &leftctrlz  &rightctrlshiftz          &kp BACKSPACE        &kp DEL    &mt LS(LC(Z)) END      &kp PG_DN     &kp ENTER     &space_backspaceR          &kp DOWN_ARROW  &kp UP_ARROW  &kp LBKT  &kp RBKT  &mo 2
+&kp EQUAL            &kp N1        &kp N2        &kp N3      &kp N4            &kp N5  &mo 1                                                                           &mo 3              &kp N6  &kp N7          &kp N8        &kp N9    &kp N0            &kp MINUS
+&kp TAB              &kp Q         &kp W         &kp E       &kp R             &kp T   &mt LC(LS(V)) LC(V)                                                             &kp LEFT_BRACKET   &kp Y   &kp U           &kp I         &kp O     &kp P             &kp BSLH
+&mt LEFT_WIN ESCAPE  &atap PLUS 0  &kp S         &kp D       &kp F             &kp G   &mt LC(LS(C)) LC(C)  &kp LCTRL  &kp LALT            &kp LEFT_ALT  &kp LEFT_GUI  &kp RIGHT_BRACKET  &kp H   &kp J           &kp K         &kp L     &semitap MINUS 0  &kp SQT
+&kp LSHFT            &kp Z         &kp X         &kp C       &kp V             &kp B                                   &homectrlz          &kp PG_UP                                      &kp N   &kp M           &kp COMMA     &kp DOT   &kp FSLH          &kp RSHFT
+&kp LCTRL            &kp GRAVE     &kp LEFT_WIN  &leftctrlz  &rightctrlshiftz          &kp BACKSPACE        &kp DEL    &endctrlshiftz      &kp PG_DN     &kp ENTER     &space_backspaceR          &kp DOWN_ARROW  &kp UP_ARROW  &kp LBKT  &kp RBKT          &mo 2
             >;
         };
 
@@ -124,11 +158,11 @@
         fn {
             display-name = "Fn";
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &tog 1                                      &mo 3   &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans  &tog 0                                      &none   &trans  &trans  &trans  &trans   &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &none   &trans  &trans      &trans  &trans  &tog 0  &trans  &trans  &trans  &trans   &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans   &trans   &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans   &trans   &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &tog 1                                      &mo 3            &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans  &tog 0                                      &kp PRINTSCREEN  &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &none   &trans  &trans      &trans  &trans  &tog 0           &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                           &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans                   &trans  &trans  &trans   &trans   &trans
             >;
         };
 
