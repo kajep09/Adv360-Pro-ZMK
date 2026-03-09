@@ -134,14 +134,15 @@
             require-prior-idle-ms = <100>;
         };
 
-        holdtappreferred100ms: holdtappreferred100ms {
+        holdtappreferred: holdtappreferred {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOLDTAPPREFERRED100MS";
+            label = "HOLDTAPPREFERRED";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <100>;
+            tapping-term-ms = <172>;
+            require-prior-idle-ms = <125>;
         };
     };
 
@@ -151,11 +152,11 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp EQUAL            &kp N1     &kp N2        &kp N3      &kp N4            &kp N5  &mo 1                                                                           &mo 3              &kp N6  &kp N7          &kp N8        &kp N9                               &kp N0                                &kp MINUS
-&kp TAB              &kp Q      &kp W         &kp E       &kp R             &kp T   &mt LC(LS(V)) LC(V)                                                             &kp LEFT_BRACKET   &kp Y   &kp U           &kp I         &kp O                                &kp P                                 &kp BSLH
-&mt LEFT_WIN ESCAPE  &kp A      &kp S         &kp D       &kp F             &kp G   &mt LC(LS(C)) LC(C)  &kp LCTRL  &kp LALT            &kp LEFT_ALT  &kp LEFT_GUI  &kp RIGHT_BRACKET  &kp H   &kp J           &kp K         &holdtappreferred100ms UNDERSCORE L  &holdtappreferred100ms KP_MINUS SEMI  &kp SQT
-&kp LSHFT            &kp Z      &kp X         &kp C       &kp V             &kp B                                   &homectrlz          &kp PG_UP                                      &kp N   &kp M           &kp COMMA     &kp DOT                              &kp FSLH                              &kp RSHFT
-&kp LCTRL            &kp GRAVE  &kp LEFT_WIN  &leftctrlz  &rightctrlshiftz          &kp BACKSPACE        &kp DEL    &endctrlshiftz      &kp PG_DN     &kp ENTER     &space_backspaceR          &kp DOWN_ARROW  &kp UP_ARROW  &kp LBKT                             &kp RBKT                              &mo 2
+&kp EQUAL            &kp N1                     &kp N2                    &kp N3      &kp N4            &kp N5  &mo 1                                                                           &mo 3              &kp N6  &kp N7          &kp N8        &kp N9                          &kp N0                        &kp MINUS
+&kp TAB              &kp Q                      &kp W                     &kp E       &kp R             &kp T   &mt LC(LS(V)) LC(V)                                                             &kp LEFT_BRACKET   &kp Y   &kp U           &kp I         &kp O                           &kp P                         &kp BSLH
+&mt LEFT_WIN ESCAPE  &holdtappreferred EQUAL A  &holdtappreferred PLUS S  &kp D       &kp F             &kp G   &mt LC(LS(C)) LC(C)  &kp LCTRL  &kp LALT            &kp LEFT_ALT  &kp LEFT_GUI  &kp RIGHT_BRACKET  &kp H   &kp J           &kp K         &holdtappreferred UNDERSCORE L  &holdtappreferred MINUS SEMI  &kp SQT
+&kp LSHFT            &kp Z                      &kp X                     &kp C       &kp V             &kp B                                   &homectrlz          &kp PG_UP                                      &kp N   &kp M           &kp COMMA     &kp DOT                         &kp FSLH                      &kp RSHFT
+&kp LCTRL            &kp GRAVE                  &kp LEFT_WIN              &leftctrlz  &rightctrlshiftz          &kp BACKSPACE        &kp DEL    &endctrlshiftz      &kp PG_DN     &kp ENTER     &space_backspaceR          &kp DOWN_ARROW  &kp UP_ARROW  &kp LBKT                        &kp RBKT                      &mo 2
             >;
         };
 
