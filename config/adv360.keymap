@@ -114,9 +114,9 @@
             flavor = "tap-preferred";
         };
 
-        holdtappreferred: holdtappreferred {
+        holdtappreferred350: holdtappreferred350 {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOLDTAPPREFERRED";
+            label = "HOLDTAPPREFERRED350";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -142,6 +142,16 @@
             tapping-term-ms = <150>;
             flavor = "tap-preferred";
         };
+
+        holdtap_homerow: holdtap_homerow {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLDTAP_HOMEROW";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+        };
     };
 
     keymap {
@@ -150,11 +160,11 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp EQUAL            &kp N1                     &kp N2        &kp N3                     &kp N4                     &kp N5  &mo 1                                                                           &mo 3              &kp N6  &kp N7          &kp N8        &kp N9    &kp N0           &kp MINUS
-&kp TAB              &kp Q                      &kp W         &kp E                      &kp R                      &kp T   &mt LC(LS(V)) LC(V)                                                             &kp LEFT_BRACKET   &kp Y   &kp U           &kp I         &kp O     &kp P            &kp BSLH
-&mt LEFT_WIN ESCAPE  &holdtappreferred Z A      &kp S         &kp D                      &kp F                      &kp G   &mt LC(LS(C)) LC(C)  &kp LCTRL  &kp LALT            &kp LEFT_ALT  &kp LEFT_GUI  &kp RIGHT_BRACKET  &kp H   &kp J           &kp K         &kp L     &semi_tap_dance  &kp SQT
-&kp LSHFT            &holdtappreferred LC(Z) Z  &kp X         &holdtappreferred LC(C) C  &holdtappreferred LC(V) V  &kp B                                   &homectrlz          &kp PG_UP                                      &kp N   &kp M           &kp COMMA     &kp DOT   &kp FSLH         &kp RSHFT
-&kp LCTRL            &kp GRAVE                  &kp LEFT_WIN  &leftctrlz                 &rightctrlshiftz                   &kp BACKSPACE        &kp DEL    &endctrlshiftz      &kp PG_DN     &kp ENTER     &space_backspaceR          &kp DOWN_ARROW  &kp UP_ARROW  &kp LBKT  &kp RBKT         &mo 2
+&kp EQUAL            &kp N1                        &kp N2        &kp N3                        &kp N4                        &kp N5  &mo 1                                                                           &mo 3              &kp N6  &kp N7          &kp N8                        &holdtap_homerow LEFT_BRACKET N9  &holdtap_homerow RIGHT_BRACKET N0  &kp MINUS
+&kp TAB              &kp Q                         &kp W         &kp E                         &kp R                         &kp T   &mt LC(LS(V)) LC(V)                                                             &kp LEFT_BRACKET   &kp Y   &kp U           &kp I                         &kp O                             &kp P                              &kp BSLH
+&mt LEFT_WIN ESCAPE  &kp A                         &kp S         &kp D                         &kp F                         &kp G   &mt LC(LS(C)) LC(C)  &kp LCTRL  &kp LALT            &kp LEFT_ALT  &kp LEFT_GUI  &kp RIGHT_BRACKET  &kp H   &kp J           &kp K                         &kp L                             &holdtap_homerow EQUAL SEMI        &kp SQT
+&kp LSHFT            &holdtappreferred350 LC(Z) Z  &kp X         &holdtappreferred350 LC(C) C  &holdtappreferred350 LC(V) V  &kp B                                   &homectrlz          &kp PG_UP                                      &kp N   &kp M           &holdtap_homerow MINUS COMMA  &holdtap_homerow EQUAL PERIOD     &kp FSLH                           &kp RSHFT
+&kp LCTRL            &kp GRAVE                     &kp LEFT_WIN  &leftctrlz                    &rightctrlshiftz                      &kp BACKSPACE        &kp DEL    &endctrlshiftz      &kp PG_DN     &kp ENTER     &space_backspaceR          &kp DOWN_ARROW  &kp UP_ARROW                  &kp LBKT                          &kp RBKT                           &mo 2
             >;
         };
 
