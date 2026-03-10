@@ -99,7 +99,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "SEMICOLONEQ";
             #binding-cells = <0>;
-            bindings = <&kp SEMICOLON>, <&kp KP_EQUAL>;
+            bindings = <&kp SEMICOLON>, <&kp EQUAL>;
 
             tapping-term-ms = <75>;
         };
@@ -112,7 +112,6 @@
             #binding-cells = <2>;
             tapping-term-ms = <175>;
             flavor = "tap-preferred";
-            require-prior-idle-ms = <125>;
         };
 
         holdtappreferred: holdtappreferred {
