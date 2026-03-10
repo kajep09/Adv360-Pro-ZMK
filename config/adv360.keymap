@@ -121,8 +121,8 @@
 
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <250>;
-            require-prior-idle-ms = <125>;
+            tapping-term-ms = <350>;
+            require-prior-idle-ms = <155>;
         };
 
         semi_tap_dance: semi_tap_dance {
@@ -130,7 +130,7 @@
             label = "SEMI_TAP_DANCE";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&kp_kp_hold_tap PLUS SEMI>, <&kp KP_EQUAL>;
+            bindings = <&kp_kp_hold_tap PLUS SEMI>, <&kp EQUAL>;
         };
 
         kp_kp_hold_tap: kp_kp_hold_tap {
