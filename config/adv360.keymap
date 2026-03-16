@@ -207,6 +207,15 @@
             flavor = "hold-preferred";
             tapping-term-ms = <150>;
         };
+
+        minusplus: minusplus {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MINUSPLUS";
+            bindings = <&kp MINUS>, <&kp EQUAL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
     };
 
     keymap {
@@ -215,7 +224,7 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp EQUAL                          &kp N1                        &kp N2        &kp N3                        &kp N4                        &kp N5  &mo 1                                                                           &mo 3               &kp N6  &kp N7          &kp N8                        &holdtap_homerow LEFT_BRACKET N9  &holdtap_homerow RIGHT_BRACKET N0  &kp MINUS
+&kp GRAVE                          &kp N1                        &kp N2        &kp N3                        &kp N4                        &kp N5  &mo 1                                                                           &mo 3               &kp N6  &kp N7          &kp N8                        &holdtap_homerow LEFT_BRACKET N9  &holdtap_homerow RIGHT_BRACKET N0  &minusplus
 &kp TAB                            &kp Q                         &kp W         &kp E                         &kp R                         &kp T   &mt LC(LS(V)) LC(V)                                                             &parenthesisopen    &kp Y   &kp U           &kp I                         &kp O                             &kp P                              &kp BSLH
 &tapholdpreferred LEFT_WIN ESCAPE  &kp A                         &kp S         &kp D                         &kp F                         &kp G   &mt LC(LS(C)) LC(C)  &kp LCTRL  &kp LALT            &kp LEFT_ALT  &kp LEFT_GUI  &parenthesisclosed  &kp H   &kp J           &kp K                         &kp L                             &holdtap_homerow EQUAL SEMI        &kp SQT
 &kp LSHFT                          &holdtappreferred350 LC(Z) Z  &kp X         &holdtappreferred350 LC(C) C  &holdtappreferred350 LC(V) V  &kp B                                   &homectrlz          &kp PG_UP                                       &kp N   &kp M           &holdtap_homerow MINUS COMMA  &holdtap_homerow EQUAL PERIOD     &kp FSLH                           &kp RSHFT
@@ -239,7 +248,7 @@
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &tog 1                                      &mo 3            &kp F7  &kp F8          &kp F9           &kp F10  &kp F11  &kp F12
 &trans  &trans  &trans  &trans  &trans  &trans  &tog 0                                      &kp PRINTSCREEN  &trans  &trans          &trans           &trans   &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &none   &trans  &trans      &trans  &trans  &tog 0           &trans  &trans          &trans           &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &none   &trans  &trans      &trans  &trans  &tog 4           &trans  &trans          &trans           &trans   &trans   &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                           &trans  &trans          &trans           &trans   &trans   &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans                   &kp LEFT_ARROW  &kp RIGHT_ARROW  &trans   &trans   &trans
             >;
@@ -253,6 +262,17 @@
 &studio_unlock  &none         &none         &none         &none         &none         &none        &none  &none      &bt BT_CLR  &none       &stp STP_BAT     &none  &none       &none       &none  &none  &none
 &none           &none         &none         &none         &macro_ver    &none                             &none      &none                                    &none  &none       &none       &none  &none  &none
 &none           &none         &none         &none         &none                       &none        &none  &none      &none       &bl BL_TOG  &rgb_ug RGB_TOG         &bl BL_INC  &bl BL_DEC  &none  &none  &none
+            >;
+        };
+
+        Linux {
+            display-name = "Base";
+            bindings = <
+&kp GRAVE                           &kp N1                        &kp N2         &kp N3                        &kp N4                        &kp N5  &mo 1                                                                            &mo 3               &kp N6  &kp N7          &kp N8                        &holdtap_homerow LEFT_BRACKET N9  &holdtap_homerow RIGHT_BRACKET N0  &minusplus
+&kp TAB                             &kp Q                         &kp W          &kp E                         &kp R                         &kp T   &mt LC(LS(V)) LC(V)                                                              &parenthesisopen    &kp Y   &kp U           &kp I                         &kp O                             &kp P                              &kp BSLH
+&tapholdpreferred RIGHT_ALT ESCAPE  &kp A                         &kp S          &kp D                         &kp F                         &kp G   &mt LC(LS(C)) LC(C)  &kp LCTRL  &kp LALT            &kp LEFT_ALT  &kp RIGHT_ALT  &parenthesisclosed  &kp H   &kp J           &kp K                         &kp L                             &holdtap_homerow EQUAL SEMI        &kp SQT
+&kp LSHFT                           &holdtappreferred350 LC(Z) Z  &kp X          &holdtappreferred350 LC(C) C  &holdtappreferred350 LC(V) V  &kp B                                   &homectrlz          &kp PG_UP                                        &kp N   &kp M           &holdtap_homerow MINUS COMMA  &holdtap_homerow EQUAL PERIOD     &kp FSLH                           &kp RSHFT
+&kp LCTRL                           &kp GRAVE                     &kp RIGHT_ALT  &leftdown                     &rightup                              &bckspace_space      &kp DEL    &endctrlshiftz      &kp PG_DN     &kp ENTER      &space_backspaceR           &kp DOWN_ARROW  &kp UP_ARROW                  &kp LBKT                          &kp RBKT                           &mo 2
             >;
         };
     };
