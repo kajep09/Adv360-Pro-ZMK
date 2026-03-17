@@ -186,7 +186,7 @@
             bindings = <&kp BACKSPACE>, <&kp SPACE>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_LSFT)>;
         };
 
         parenthesisclosed: parenthesisclosed {
