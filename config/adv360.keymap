@@ -231,7 +231,7 @@
         danskAE: danskAE {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LS(U)) &kp N0 &kp N0 &kp LS(E) &kp N6 &kp LS(SPACE)>;
+            bindings = <&kp LC(LS(U)) &kp N0 &kp N0 &kp E &kp N6 &kp SPACE>;
             label = "DANSKAE";
         };
     };
