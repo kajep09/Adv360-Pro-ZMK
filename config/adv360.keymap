@@ -252,6 +252,51 @@
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
         };
+
+        ctrlf1: ctrlf1 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CTRLF1";
+            bindings = <&kp NUMBER_1>, <&kp F1>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ctrlf2: ctrlf2 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CTRLF2";
+            bindings = <&kp NUMBER_2>, <&kp F2>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ctrlf3: ctrlf3 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CTRLF3";
+            bindings = <&kp NUMBER_3>, <&kp F3>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ctrlf4: ctrlf4 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CTRLF4";
+            bindings = <&kp NUMBER_4>, <&kp F4>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ctrlf5: ctrlf5 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CTRLF5";
+            bindings = <&kp NUMBER_5>, <&kp F5>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
     };
 
     macros {
@@ -274,11 +319,11 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp GRAVE                          &kp N1     &kp N2        &kp N3     &kp N4    &kp N5  &mo 4                                                                       &mo 6               &kp N6  &kp N7          &kp N8                        &holdtap_homerow LEFT_BRACKET N9  &holdtap_homerow RIGHT_BRACKET N0  &minusplus
-&kp TAB                            &kp Q      &kp W         &kp E      &kp R     &kp T   &kp LC(V)                                                                   &parenthesisopen    &kp Y   &kp U           &kp I                         &kp O                             &kp P                              &kp BSLH
-&tapholdpreferred LEFT_WIN ESCAPE  &kp A      &kp S         &kp D      &kp F     &kp G   &kp LC(C)        &kp LCTRL  &kp LALT            &kp LEFT_ALT  &kp LEFT_GUI  &parenthesisclosed  &kp H   &kp J           &kp K                         &kp L                             &kp SEMICOLON                      &kp SQT
-&kp LSHFT                          &kp Z      &kp X         &kp C      &kp V     &kp B                               &homectrlz          &kp PG_UP                                       &kp N   &kp M           &holdtap_homerow MINUS COMMA  &holdtap_homerow EQUAL PERIOD     &kp FSLH                           &kp RSHFT
-&kp LCTRL                          &kp GRAVE  &kp LEFT_WIN  &leftdown  &rightup          &bckspace_space  &delenter  &endctrlshiftz      &kp PG_DN     &kp ENTER     &space_backspaceR           &kp DOWN_ARROW  &kp UP_ARROW                  &kp LBKT                          &kp RBKT                           &mo 5
+&kp GRAVE                          &ctrlf1    &ctrlf2       &ctrlf3    &ctrlf4   &ctrlf5  &mo 4                                                                       &mo 6               &kp N6  &kp N7          &kp N8                        &holdtap_homerow LEFT_BRACKET N9  &holdtap_homerow RIGHT_BRACKET N0  &minusplus
+&kp TAB                            &kp Q      &kp W         &kp E      &kp R     &kp T    &kp LC(V)                                                                   &parenthesisopen    &kp Y   &kp U           &kp I                         &kp O                             &kp P                              &kp BSLH
+&tapholdpreferred LEFT_WIN ESCAPE  &kp A      &kp S         &kp D      &kp F     &kp G    &kp LC(C)        &kp LCTRL  &kp LALT            &kp LEFT_ALT  &kp LEFT_GUI  &parenthesisclosed  &kp H   &kp J           &kp K                         &kp L                             &kp SEMICOLON                      &kp SQT
+&kp LSHFT                          &kp Z      &kp X         &kp C      &kp V     &kp B                                &homectrlz          &kp PG_UP                                       &kp N   &kp M           &holdtap_homerow MINUS COMMA  &holdtap_homerow EQUAL PERIOD     &kp FSLH                           &kp RSHFT
+&kp LCTRL                          &kp GRAVE  &kp LEFT_WIN  &leftdown  &rightup           &bckspace_space  &delenter  &endctrlshiftz      &kp PG_DN     &kp ENTER     &space_backspaceR           &kp DOWN_ARROW  &kp UP_ARROW                  &kp LBKT                          &kp RBKT                           &mo 5
             >;
         };
 
@@ -305,7 +350,7 @@
         Linux {
             display-name = "Base";
             bindings = <
-&kp GRAVE                           &kp N1     &kp N2        &kp N3     &kp N4    &kp N5  &mo 4                                                                        &mo 6               &kp N6  &kp N7          &kp N8                        &holdtap_homerow LEFT_BRACKET N9  &holdtap_homerow RIGHT_BRACKET N0  &minusplus
+&kp GRAVE                           &trans     &trans        &trans     &trans    &trans  &mo 4                                                                        &mo 6               &kp N6  &kp N7          &kp N8                        &holdtap_homerow LEFT_BRACKET N9  &holdtap_homerow RIGHT_BRACKET N0  &minusplus
 &kp TAB                             &kp Q      &kp W         &kp E      &kp R     &kp T   &kp LC(V)                                                                    &parenthesisopen    &kp Y   &kp U           &kp I                         &kp O                             &kp P                              &kp BSLH
 &tapholdpreferred RIGHT_ALT ESCAPE  &kp A      &kp S         &kp D      &kp F     &kp G   &kp LC(C)        &kp LCTRL  &kp LALT            &kp LEFT_ALT  &kp RIGHT_ALT  &parenthesisclosed  &kp H   &kp J           &kp K                         &kp L                             &kp SEMICOLON                      &kp SQT
 &kp LSHFT                           &kp Z      &kp X         &kp C      &kp V     &kp B                               &homectrlz          &kp PG_UP                                        &kp N   &kp M           &holdtap_homerow MINUS COMMA  &holdtap_homerow EQUAL PERIOD     &kp FSLH                           &kp RSHFT
